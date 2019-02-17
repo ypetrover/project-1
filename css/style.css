@@ -1,0 +1,323 @@
+body {
+    margin: 0;
+    font-family: 'Handlee', cursive;
+}
+
+section {
+    background-image: url('../images/board.jpg');
+    background-size: cover;
+    height: 100vh;
+    padding-top: 50px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-weight: 700;
+    background-image: url('../images/header.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 90px;
+    line-height: 1.9em;
+    filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.2));
+}
+
+#task {
+    position: relative;
+    background-image: url('../images/paper.png');
+    background-size: cover;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 38%;
+    width: 500px;
+    margin: auto;
+    margin-top: 20px;
+    max-width: 90vw;
+    ;
+}
+
+#myTask {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 20px;
+    line-height: 28.2px;
+    position: relative;
+    top: 3px;
+}
+
+#date, #time {
+    width: 47%;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-top: 11px;
+}
+
+#date, #addTask {
+    float: left;
+}
+
+#time, #clearTask {
+    float: right;
+}
+
+#innerTask {
+    width: 360px;
+    height: calc(100% - 113px);
+    margin: auto;
+    max-width: 70vw;
+}
+
+button {
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-weight: 400;
+    width: 47%;
+    margin-top: 11px;
+}
+
+#notes {
+    margin-top: 25px;
+    clear: both;
+}
+
+#all {
+    display: flex;
+    overflow: auto;
+    margin: 0 20px;
+}
+
+.note {
+    min-width: 250px;
+    width: 250px;
+    height: 250px;
+    background-image: url('../images/note.png');
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    margin: 0 15px;
+}
+
+.taskInNote {
+    position: absolute;
+    width: 225px;
+    height: 160px;
+    overflow: auto;
+    top: 40px;
+    left: 15px;
+}
+
+.taskInNote::-webkit-scrollbar {
+    width: 10px;
+}
+
+.taskInNote::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+.taskInNote::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 10px;
+}
+
+.taskInNote::-webkit-scrollbar-thumb:hover {
+    background: #b30000;
+}
+
+#myTask::-webkit-scrollbar, #all::-webkit-scrollbar {
+    height: 12px;
+    width: 10px;
+}
+
+#myTask::-webkit-scrollbar-track, #all::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+    background: rgba(255, 255, 0, .1);
+}
+
+#myTask::-webkit-scrollbar-thumb, #all::-webkit-scrollbar-thumb {
+    background: #5CB85C;
+    border-radius: 10px;
+}
+
+#myTask::-webkit-scrollbar-thumb:hover, #all::-webkit-scrollbar-thumb:hover {
+    background: #F0AD4E;
+}
+
+.details {
+    font-size: 17px;
+    white-space: pre-wrap;
+}
+
+.spanDateTime {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 15px;
+}
+
+.closeIcon {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    display: none;
+    cursor: pointer;
+}
+
+.closeIcon:hover {
+    color: red;
+}
+
+.note:hover>.closeIcon {
+    display: block;
+}
+
+.pin {
+    animation-duration: .6;
+    height: 55px;
+    position: absolute;
+    top: 7px;
+    left: 105px;
+    mix-blend-mode: multiply;
+}
+
+.animation>.pin {
+    animation-name: pin;
+    animation-duration: 1.2s;
+}
+
+.note.animation {
+    animation-name: fadeInDown;
+    animation-duration: 0.6s;
+}
+
+.delete {
+    animation-name: delete;
+    animation-duration: 1.5s;
+    opacity: 0;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes pin {
+    from, 49% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+        height: 75px;
+        top: 0px;
+        left: 85px;
+    }
+    to {
+        height: 55px;
+        top: 7px;
+        left: 105px;
+    }
+}
+
+@keyframes delete {
+    to {
+        width: 0;
+        min-width: 0;
+        margin: 0;
+    }
+}
+
+@keyframes deleteMobile {
+    to {
+        height: 0;
+        min-height: 0;
+        margin: 0;
+    }
+}
+
+@media only screen and (max-device-width: 600px) {
+    body {
+        background-image: url(../images/board.jpg);
+    }
+    #all, .closeIcon {
+        display: block;
+    }
+    .note {
+        margin: auto;
+    }
+    section {
+        background-image: none;
+    }
+    .delete {
+        animation-name: deleteMobile;
+    }
+}
+
+.error {
+    border: red solid 2px;
+    animation-name: error;
+    animation-duration: 2s;
+}
+
+@keyframes error {
+    25%, 75% {
+        border-color: rgb(169, 169, 169);
+    }
+    50% {
+        border-color: red;
+    }
+}
+
+@keyframes errorMassage {
+    25%, 75% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.bubble {
+    padding: 5px;
+    margin: 1em 0;
+    font-size: 13px;
+    text-align: center;
+    color: white;
+    text-shadow: 0 -0.05em 0.1em rgba(0, 0, 0, .3);
+    background: red;
+    border-radius: 5px;
+    top: -10px;
+    position: absolute;
+    /* animation-name: errorMassage;
+    animation-duration: 2s; */
+}
+
+.bubble:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 30%;
+    border: 10px solid transparent;
+    border-bottom-color: red;
+    border-top: 0;
+    border-right: 0;
+    margin-top: -10px;
+    /* animation-name: errorMassage;
+    animation-duration: 2s; */
+}
+
+.inner {
+    position: relative;
+    clear: both;
+    display: none;
+}
+
+.error+.inner, .error+*+.inner {
+    display: block;
+}

@@ -82,6 +82,7 @@ function clearTask() {
     document.getElementById('myTask').value = '';
     document.getElementById('date').value = '';
     document.getElementById('time').value = '';
+    document.getElementById('myTask').focus();
 }
 
 function erase(event) {

@@ -21,11 +21,11 @@
         <h1>My Task Board</h1>
         <div id="task">
             <div id="innerTask">
-                <textarea name="task" id="myTask" cols="30" onfocus="clearError()" placeholder="Add task here..."></textarea>
+                <textarea name="task" id="myTask" onkeydown="clearError()" cols="30"  placeholder="Add task here..."></textarea>
                 <div class="inner">
                     <div class="bubble">Please enter the task</div>
                 </div>
-                <input id="date" type="date" onfocus="clearError()">
+                <input id="date" type="date" onclick="clearError()" onkeydown="clearError()">
                 <input id="time" type="time">
                     <div class="inner">
                         <div class="bubble">Please enter the date</div>

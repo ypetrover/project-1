@@ -35,12 +35,14 @@ function addTask() {
     //בדיקה אם הוזנה משימה ותאריך
     if (add === '') {
         document.getElementById('myTask').className = 'error';
+        document.getElementById('myTask').focus();
         return;
     } else {
         document.getElementById('myTask').className = '';
     }
     if (tDate === '') {
         document.getElementById('date').className = 'error';
+        document.getElementById('date').focus();
         return;
     } else {
         document.getElementById('date').className = '';
@@ -83,6 +85,8 @@ function clearTask() {
     document.getElementById('date').value = '';
     document.getElementById('time').value = '';
     document.getElementById('myTask').focus();
+    document.getElementById("myTask").className = "";
+    document.getElementById("date").className = "";
 }
 
 function erase(event) {
@@ -103,3 +107,4 @@ function erase(event) {
     }, 1500);
 
 }
+
